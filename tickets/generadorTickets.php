@@ -33,23 +33,43 @@ function generarTickets(float $valorTotal,int $valorMaxTickets=1):array{
 }
 
 function obtenerProductosQueValgan (int $valorTotalProductos):array|bool{
+    $arrayProductos=[];
+    do{
+        $claveProductoAleatorio = obtenerProductoAleatorio($valorTotalProductos);
+        if ($claveProductoAleatorio){
+            $valorTotalProductos=$valorTotalProductos-PRODUCTOS[$claveProductoAleatorio];
+        }
+    }while($valorTotalProductos>0 && $claveProductoAleatorio!=false);
 
     return false;
 }
 
-function obtenerProductoAleatorio(int $maximoPrecio):string{
-    $posicionAleatoria=mt_rand(0,count(PRODUCTOS));
-    $claveProductoSeleccionado="";
-    foreach(PRODUCTOS as $clave=>$producto){
-        $i=0;
-        if ($i==$posicionAleatoria && $producto<=$maximoPrecio){
-            $claveProductoSeleccionado=$clave;
+/**
+ * Función que obtiene un producto aleatorio del array de productos
+ *
+ * Se utiliza una posción aleatoria para obtener la clave del producto y retornarlo
+ * en forma de string para que pueda servir de índice.
+ *
+ * @param int $maximoPrecio
+ * @return string
+ */
+function obtenerProductoAleatorio(int $maximoPrecio):string|bool{
+    if (max(PRODUCTOS)>$maximoPrecio){
+        return false;
+    }else{
+        $posicionAleatoria=mt_rand(0,count(PRODUCTOS));
+        $claveProductoSeleccionado="";
+        foreach(PRODUCTOS as $clave=>$producto){
+            $i=0;
+            if ($i==$posicionAleatoria && $producto<=$maximoPrecio){
+                $claveProductoSeleccionado=$clave;
+            }
+            else{
+                obtenerProductoAleatorio($maximoPrecio);
+            }
         }
-        else{
-            obtenerProductoAleatorio($maximoPrecio);
-        }
+        return $claveProductoSeleccionado;
     }
-    return $claveProductoSeleccionado;
 }
 
 function formatearTicket(array $datosTicket):string{
@@ -61,6 +81,6 @@ function formatearTicket(array $datosTicket):string{
 //Tengo que imprimir la respuesta que he obtenido de la función
 echo "El resultado de los tickets generados es:";
 foreach (generarTickets(TICKETS5_10) as $items ){
-    echo formatearTicket($item);
+    echo formatearTicket($items);
 }
 
