@@ -1,6 +1,8 @@
 <?php
 declare(strict_types=1);
 
+//print_r($_SERVER);
+
 /*print_r($_GET);//Imprimir arrays
 
 isset($_GET['cantidad']); //Comprueba si existe la posicion 'cantidad' dentro de un array

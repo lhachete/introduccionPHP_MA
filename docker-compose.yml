@@ -6,6 +6,7 @@ services:
   # Preparamos un volumen para almacenar nuestro código
     volumes:
       - ./:/var/www/html
+      #- ./.docker/apache:/etc/apache2/sites-available
     expose:
       - 80
     ports:
