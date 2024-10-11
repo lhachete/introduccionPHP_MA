@@ -5,21 +5,29 @@
     <title>Inciar Sesión</title>
 </head>
 <body>
-<form action="comprobarUsuario.php" method="post">
+<form action="grabarUsuario.php" method="post">
     <label for="user">Escribe tu usuario</label>
     <input name="usuario" id="user" type="text" placeholder="Escriba su usuario">
     </br>
     <label for="apellidos">Escribe tus apellidos</label>
-    <input name="usuario" id="apellidos" type="text" placeholder="Escriba sus apellidos">
+    <input name="apellidos" id="apellidos" type="text" placeholder="Escriba sus apellidos">
     </br>
     <label for="nombre">Escribe tu nombre</label>
-    <input name="usuario" id="nombre" type="text" placeholder="Escriba su nombre">
+    <input name="nombre" id="nombre" type="text" placeholder="Escriba su nombre">
     </br>
     <label for="direccion">Escribe tu dirección</label>
-    <input name="usuario" id="direccion" type="text" placeholder="Escriba su dirección">
+    <input name="direccion" id="direccion" type="text" placeholder="Escriba su dirección">
     </br>
     <label for="pass">Escribe tu contraseña</label>
     <input name="contrasenya" id="pass" type="password" placeholder="Escriba su password">
+    </br>
+
+
+    <input type="checkbox" name="lenguajes[]" value="c" /> C<br />
+    <input type="checkbox" name="lenguajes[]" value="java" /> Java<br />
+    <input type="checkbox" name="lenguajes[]" value="php" /> Php<br />
+    <input type="checkbox" name="lenguajes[]" value="python" /> Python<br />
+
     </br>
     <input type="submit" value="Enviar">
 
