@@ -1,29 +1,32 @@
 <?php
     $titulo="Iniciar Sesion";
-    $labelUsuario="Escribe aquí tu usuario";
+    $tituloPrincipal="Iniciar Sesión en el Servidor";
 
-    //print_r($_SERVER)
+    include_once "../plantilla/encabezado.php";
 ?>
-
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title><?=$titulo?></title>
-</head>
-<body>
-<form action="login.php">
-    <label for="user"><?=$labelUsuario?></label>
-    <input name="usuario" id="user" type="text" placeholder="Escriba su usuario">
-    </br>
-
-    <label for="pass">Escribe tu contraseña</label>
-    <input name="contrasenya" id="pass" type="password" placeholder="Escriba su password">
-    </br>
-    <input type="submit" value="Enviar">
-
-
-</form>
-
-</body>
-</html>
+<main>
+    <section class="py-5 text-center container">
+        <div class="container">
+            <div class="row justify-content-md-center">
+                <div class="col">
+                    <form action="comprobarUsuario.php" method="post">
+                        <div class="mb-3">
+                            <label for="user" class="form-label">Nombre de usuario</label>
+                            <input class="form-control" name="usuario" id="user" type="text" placeholder="Escriba su usuario">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="pass">Escribe tu contraseña</label>
+                            <input class="form-control" name="contrasenya" id="pass" type="password" placeholder="Escriba su password">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Enviar Datos</button>
+                    </form>
+                </div>
+                <div class="col">
+                    <!--Aquí va una foto chula-->
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+<?php
+    include_once "../plantilla/pie.php";
